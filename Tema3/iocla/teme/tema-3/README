@@ -1,0 +1,59 @@
+-- Tema 3 IOCLA -- Paunoiu Darius Alexandru -- 322CD -- Readme
+
+        -- Concepte folosite --
+    Am incercat sa obtin cele mai simple solutii in toate task-urile si sa 
+nu folosesc variabile extra. In task-ul 3 am folosit totusi un variabila
+pentru delimiatori pentru strtok.
+    Toate functiile au comentarii ce explica ce fac majoritatea operatiilor
+pentru a putea fi usor de urmarit
+
+        -- Extra notes --
+    Nu am folosit deloc instructinea loop in aceasta tema. Aceasta a fost
+mai degraba o preferinta deoarece in majoritatea situatilor era mai usor
+de manipulat cod-ul cu cmp si jumps instructions.
+
+        -- Rezolvarea task-urilor --
+    
+    -- Task 1 --
+    Functia se foloseste de faptul ca numerele trebuie sortate crescator
+de la 1 la n si ca acestea sunt consecutive, asadar nu se face o sortare
+propriu zisa, ci doar se leaga elementele in ordinea corecta de la 1 la n.
+Practic, se parcurg toate elementele de la 1 la n, si se adauga nodul cu 
+valoarea corespunzatoare pasului de iteratie in lista.
+
+    -- Task 2 --
+    Part 1 - Pentru cmmmc se foloseste de algoritmul lui Euclid de calculare
+a cmmdc, cel cu scaderi. Dupa care, cmmmc este calculat ca produsul numerelor
+initial impartit la cmmdc.
+    Part 2 - Modul in care verific daca secventa este corecta este prin 
+utilizarea unui registru de control, in cazul asta edi. Pentru fiecare
+parenteza deschisa de adauga 1, iar pentru fiecare parenteza inchisa se 
+scade 1. Daca rezultatul este vreodata negativ inseamna ca secventa este
+incorecta. La final de secventa, acesta trebuie sa fie 0, altfel secventa
+este incorecta.
+
+    -- Task 3 --
+    La acest task m-am folosit de functia strtok pentru ca sparge string-ul
+initial in tokens, delimitatorii fiind o variabila din .data, iar tokenurile
+erau mutate in words. Am definit functia compare_func care compara 2 numere
+dupa lungime, aceasta fiind calculata prin strlen, iar daca lungimile sunt
+egale atunci se intoarce rezultatul functiei strcmp (adica vor fi sortate
+lexicografic). Functia sort doar pune parametrii pe stiva, apeleaza qsort
+si restaureaza stiva.
+
+    -- Task 4 --
+    Din pacate nu am reusit sa termin acest task. Nu prea am inteles sincer sa
+fiu care este exact flow-ul dintre cele 3 functii si cum ar trebui sa arate de 
+fapt implementarea dar am incercat sa o fac. Din lipsa de timp a trebuit sa
+renunt la acest task cat timp el nu era gata. Acesta reuseste sa treaca teste 
+foarte basic ce nu contin inmultiri si doar adunari.
+
+    -- Task-uri bonus --
+    Nu am facut niciunul dintre task-urile din acelasi motiv pentru care nu am
+terminat nici task-ul 4, lipsa de timp. Stiu ca tema a aparut de mult timp, dar
+nu pot acorda timp infinit unei teme si am considerat ca ar fi fost necesar sa 
+investesc mult prea mult timp pentru a terminat task-ul 4 sau pentru a face
+task-urile bonus, fiind necesar destul de mult research pentru acestea.
+
+    -- Va multumesc frumos pentru feedback si pentru timpul acordat corectarii
+                acestei teme! --

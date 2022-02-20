@@ -1,0 +1,92 @@
+-- Tema 1 IOCLA -- Paunoiu Darius Alexandru -- 322CD -- Readme
+
+        -- Concepte folosite --
+    Am incercat sa tin o rezolvare cat mai simpla si mai concisa, cu cat mai
+putine alocari de memorie, pentru a fi cat mai eficient. In cod se gasesc 
+comentarii care explica diferitile linii de cod, chiar daca uneori sunt
+intuitive.
+
+        -- Extra notes --
+    Am considerat ca nicio linie nu este mai lunga decat constanta 
+MAX_INPUT_LINE_SIZE, egala cu 300 de caractere. Nu am schimbat structurile
+pre-definite in tema, si verifica daca directorul ce trebuie sters este cap
+de lista.
+    Directorul in care lucram se numeste home, aceasta este calea parinte
+a tuturor subdirectoarelor si fisierelor. 
+    Fiecare functie in care lucram verifica alocarile facute si verificara
+posibilele erori ce pot aparea pentru a evita orice eroare de program.
+    
+        -- Functii aditionale --
+    Am simtit nevoie sa adaug o functie rmDirR, care sterge un director in mod
+recursiv, impreuna cu toate componentele sale. Functia rmDir va cauta 
+pointer-ul la nodul respectiv.
+
+        -- Rezolvarea task-urilor --
+    
+    -- Touch --
+    Aceasta functie verifica initial daca exista un fisier sau un director
+cu acelasi nume cu fisierul dorit. Apoi, se creeaza fisierul si se adauga
+in lista de fisiere, ca intr-o lista simplu inlantuita obisnuita.
+
+    -- Mkdir --
+    Aceasta functie verifica initial daca exista un fisier sau un director
+cu acelasi nume cu directorului dorit. Apoi, se creeaza fisierul si se adauga
+in lista de directoare, ca intr-o lista simplu inlantuita obisnuita.
+
+    -- Ls --
+    Functia ls parcurge mai intai lista de directoare, afisand numele acestora
+dupa care parcurge lista de fisiere, din nou afisand numele acestora. Listele
+sunt parcurse clasic, ca in orice lista simplu inlantuita.
+
+    -- Rm --
+    Functia rm verifica mai intai existenta in lista de fisiere a sirului de 
+caractere, caz in care salveaza adresa fisierului intr-un pointer. Daca
+fisierul exista in lista atunci acesta este scos din lista iar memoria ocupata
+este eliberata.
+
+    -- Rmdir --
+    Functia rmdir verifica mai intai existenta in lista de directoare a sirului
+de caractere, caz in care salveaza adresa directorului intr-un pointer. Daca 
+directorul exista atunci acesta este scos din lista, iar apoi este sters in mod
+recursiv folosind apel la functia rmDirR, care sterge un director recursiv 
+impreuna cu tot continutul acestuia.
+
+    -- Cd --
+    Functia cd verifica mai intai tipul de apel facut, daca este un apel de 
+urcare in ierarhie sau de coborare in ierarhie, iar dupa caz, fie urca un 
+director in ierarhie daca acest lucru este posibil, fie cauta in lista noul
+director in care se va muta spatiul de lucru, facand schimbarea.
+
+    -- Pwd --
+    Functia pwd creaza un string alocat dinamic a carui memorie este
+realocata, in cazul care calea este prea lunga, care reprenzinta calea
+directorului curent de lucru. Aceasta care este creata de la sfarsit 
+la inceput, plecand din directorul curent si ajungand in home. Pentru a adauga
+la inceputul sirului directorul parinte folosim o variabila auxiliara aux, care
+este declarata dinamic, la fel ca si path.
+
+    -- Stop --
+    Functia stop se opreste de oprirea programului, eliberand toata memoria
+alocata si astfel distrugand ierarhia de directoare si fisiere. Ea face acest
+lucru facand apeluri la functiile rmDirR (care distruge toate directoarele cu 
+tot cu continutul lor) si la functia rm pentru fisierele ramase in home.
+
+    -- Tree --
+    Functia tree este o functie recursiva care arata toata ierarhie de fisiere
+si directoare pornind din directorul curent. Functia se apeleaza pentru 
+directorul curent dar nu afiseaza numele directorului curent, ci doar ceea ce
+contine. Din aceasta cauza, primul sir de caractere, in urma apelului din main
+ce trebuie afisat va fi target->head_children_dirs->name si nu target->name.
+Mai intai afisam acest nume, dupa care parcurgen acest director in mod recursiv
+pana nu mai gasim nimic de afisat, dupa care, intorcandu-ne din recursivitate 
+afisam fisierele din director, iar apoi continuam sa parcurgem lista de
+directoare.
+
+    -- Mv --
+    Pentru functia mv am folosit metoda propusa pe forumul temei 1 de pe 
+canalul de moodle de pe IOCLA, ceea in care nu am recreat complet ierarhia
+directorului redenumit, ci doar i-am schimbat pozitia in lista cu ultima
+pozitie si i-am schimbat numele. Bineinteles, intai au fost facute verificarile
+ca oldName si newName nu se regasesc in listele de fisiere si directoare din
+directorul curent. Daca este un fisier, pur si simplu stergem si recream 
+fisierul folosimd rm si touch. Daca este director folosim metoda explicata.

@@ -1,0 +1,52 @@
+-- Tema 2 IOCLA -- Paunoiu Darius Alexandru -- 322CD -- Readme
+
+        -- Concepte folosite --
+    Am incercat sa folosesc cat mai putin variabile extra, din pacate 
+acest lucru mi s-a parut relativ imposibil/mult prea greu pentru task-urile
+3 si 4.
+    Toate functiile au comentarii ce explica ce fac majoritatea operatiilor
+pentru a putea fi usor de urmarit
+
+        -- Extra notes --
+    Nu am folosit deloc instructinea loop in aceasta tema. Aceasta a fost
+mai degraba o preferinta deoarece in majoritatea situatilor era mai usor
+de manipulat cod-ul cu cmp si jumps instructions.
+    Exista 2 pierderi de memorie cauzate de checker in sine (nu se face free
+pe cheie si pe tags). Am inteles ca nu se verifica pierderile de memorie la 
+aceasta tema asa ca am ignorat acest aspect.
+
+        -- Rezolvarea task-urilor --
+    
+    -- Rotp --
+    Functia in sine parcurge String-ul plain siaplica formula data pe ocw:
+        ciphertext[i] = plain[i] ^ key[len - i - 1]
+    Functia nu foloseste variabile extra.
+
+    -- Ages --
+    Functia parcurge vectorul de all_dates si calculeaza varsta corespunzatoare
+fiecarei persoane. In eticheta incrementAge se ajunge atunci cand o persoana
+si-a serbat ziua de nastere in acel an. Initial se pleaca de la premiza ca
+nicio persoana nu si-a serbat ziua, iar dupa se caz se ajunge in aceea
+eticheta. Eticheta zeroAgesPerson este pentru situatia cand o persoana are
+varsta egala cu 0. Eticheta addDataInAllAges adauga varsta in array.
+    Functia nu foloseste variabile extra.
+
+    -- Columnar --
+    Asa cum este scris si in comentarii, functia nu construieste matricea 
+propriu zisa, ci foloseste formula gasita in comentariul de cod pentru
+a pune datele in cipher text. Functia foloseste 2 variabile extra numberOfLines
+si currentChar.
+
+    -- Cache --
+    Functia urmeaza exact pasii de pe ocw. Verifica daca tag-ul adresei se afla
+in vectorul de taguri, caz in care face cacheHit si ia valoare din cache. In 
+caz contrar, se adauga tag-ul pe pozitia toReplace, in cache pe linia toReplace
+este adusa memoria din RAM si apoi valoarea este luata din cache, ca si cum ar
+fi fost un cache hit de fapt. Functia folosete mai multe variabile extra
+deoacere doar un registru ar fi fost liber pentru manipularea datelor.
+    Variabilele sunt:  
+        myTags - vectorul ce contine toate tagurile
+        myIndex - index-ul toReplace
+        myAddress - adresa data drept parametrii
+        myReg - valoarea ce trebuie adusa din cache sau RAM
+        myCache - matricea de cache
